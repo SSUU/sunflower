@@ -2,7 +2,7 @@ package ch14.sub2.model;
 
 public class Ex6Obj {
 
-	private int no; // ±Û¹øÈ£
+	private int no; // ê¸€ë²ˆí˜¸
 	private String subject;
 	private String writer;
 	private String contents;
@@ -19,8 +19,8 @@ public class Ex6Obj {
 	}
 
 	public void printEx6Obj() {
-		System.out.println("±Û¹øÈ£ : " + no + " ±ÛÁ¦¸ñ : " + subject + " ÀÛ¼ºÀÚ : "
-				+ writer + " ³»¿ë : " + contents);
+		System.out.println("ê¸€ë²ˆí˜¸ : " + no + " ê¸€ì œëª© : " + subject + " ì‘ì„±ì : "
+				+ writer + " ë‚´ìš© : "+contents);
 	}
 
 	public int getNo() {

@@ -44,7 +44,7 @@ public class Ex6Controller implements ActionListener {
 		}
 	}
 
-	// eBView °ü·Ã ¸Þ¼Òµå
+	// eBView ê´€ë ¨ ë©”ì†Œë“œ
 	private void addData() {
 		Ex6Obj obj = new Ex6Obj();
 		TextField[] arrTf = eBView.getWTFeild();
@@ -89,7 +89,7 @@ public class Ex6Controller implements ActionListener {
 		}
 	}
 
-	// eLView °ü·Ã ¸Þ¼Òµå
+	// eLView ê´€ë ¨ ë©”ì†Œë“œ
 	private void printData(List list) {
 		Ex6Obj obj = null;
 		String str = "";

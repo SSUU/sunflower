@@ -17,7 +17,7 @@ import ch14.sub2.controller.Ex6Controller;
 
 public class Ex6BWView {
 	
-	// È­¸é ¸¸µé±â
+	// í™”ë©´ ë§Œë“¤ê¸°
 	private Frame f = null;
 	private Panel[] wPan = null;
 	private Label[] wLabel = null;
@@ -26,7 +26,7 @@ public class Ex6BWView {
 	private Button[] wBtn = null;
 	private Ex6Controller actionListener = null;
 	
-	// actionListenerÀÇ controllÇÒ ¼ö ÀÖµµ·Ï component¸¦ Á¦°øÇÏ±â À§ÇÑ getMethod
+	// actionListenerì˜ controllí•  ìˆ˜ ìˆë„ë¡ componentë¥¼ ì œê³µí•˜ê¸° ìœ„í•œ getMethod	
 	public TextField[] getWTFeild(){
 		return wTField;
 	}
@@ -39,22 +39,22 @@ public class Ex6BWView {
 	}
 	
 	private void init(){
-		f = new Frame("°Ô½ÃÆÇ ¾²±â");
+		f = new Frame("ê²Œì‹œíŒ ì“°ê¸°");
 		wPan = new Panel[6];
 		wLabel = new Label[3];
-		wBtn = new Button[2]; // 0: ÀúÀå, 1: Ãâ·Â
+		wBtn = new Button[2]; // 0: ì €ì¥, 1: ì¶œë ¥
 		wTField = new TextField[2]; // col : 10
 		wTarea = new TextArea(5,20);
 		actionListener = new Ex6Controller();
 		actionListener.setView(this);
 		
-		initComponent(); // component ÃÊ±âÈ­
-		makeView(); // È­¸é ¸¸µé±â
+		initComponent(); // component ì´ˆê¸°í™”
+		makeView(); // í™”ë©´ ë§Œë“¤ê¸°
 		
 		new Ex6ListView(actionListener);
 	}
 	
-	// initialization component method - °¢°¢ÀÇ ÄÄÆ÷³ÍÆ®¸¦ ÃÊ±âÈ­
+	// initialization component method - ê°ê°ì˜ ì»´í¬ë„ŒíŠ¸ë¥¼ ì´ˆê¸°í™”
 	private void initComponent(){
 		initComponent(wLabel);
 		initComponent(wBtn);
@@ -62,7 +62,7 @@ public class Ex6BWView {
 		initComponent(wPan);
 	}
 	private void initComponent(Label[] l){
-		String[] str = {"Á¦   ¸ñ","ÀÛ¼ºÀÚ","³»    ¿ë"};
+		String[] str = {"ì œ   ëª©","ì‘ì„±ì","ë‚´    ìš©"};
 		
 		for(int i=0; i<l.length; i++){
 			l[i] = new Label(str[i]);
@@ -85,8 +85,8 @@ public class Ex6BWView {
 								
 		LayoutManager[] layout = {
 				new BorderLayout(),  // basePanel
-				new BorderLayout(),  // topPanel 1 - topPanel¿¡ Ãß°¡
-				new BorderLayout(),  // topPanel 2 - topPanel¿¡ Ãß°¡
+				new BorderLayout(),  // topPanel 1 - topPanelì— ì¶”ê°€
+				new BorderLayout(),  // topPanel 2 - topPanelì— ì¶”ê°€
 				new GridLayout(2,1), // topPanel
 				new BorderLayout(),	 // centerPanel
 				new GridLayout(1,2)};// bottomPanel
@@ -95,7 +95,7 @@ public class Ex6BWView {
 			p[i] = new Panel(layout[i]);
 		}
 	}
-	// setComponent method - ÆÇ³Ú¿¡ °¢°¢ÀÇ ÄÄÆ÷³ÍÆ®¸¦ Ãß°¡
+	// setComponent method - íŒë„¬ì— ê°ê°ì˜ ì»´í¬ë„ŒíŠ¸ë¥¼ ì¶”ê°€
 	private void setTPComponent(Panel baseP, Label l, TextField t){
 		baseP.add(l, BorderLayout.WEST);
 		baseP.add(t, BorderLayout.EAST);
@@ -113,7 +113,7 @@ public class Ex6BWView {
 			baseP.add(btn[i]);
 		}
 	}
-	// È­¸éÀ» ¸¸µå´Â ¸ŞÀÎ ¸Ş¼Òµå
+	// í™”ë©´ì„ ë§Œë“œëŠ” ë©”ì¸ ë©”ì†Œë“œ
 	private void makeView(){
 		int id = 0;
 		for(int i=0; i<wPan.length; i++){
@@ -125,12 +125,12 @@ public class Ex6BWView {
 				wPan[i].add(wPan[5], BorderLayout.SOUTH);
 				break;
 			case 1:
-				// addTopComponent (Á¦¸ñ)
+				// addTopComponent (ì œëª©)
 				setTPComponent(wPan[i], wLabel[id], wTField[id]);
 				id++;
 				break;
 			case 2:
-				// addTopComponent (ÀÛ¼ºÀÚ)
+				// addTopComponent (ì‘ì„±ì)
 				setTPComponent(wPan[i], wLabel[id], wTField[id]);
 				id++;
 				break;

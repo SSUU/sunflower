@@ -18,7 +18,7 @@ import ch14.sub2.controller.Ex6Controller;
 
 public class Ex6ListView {
 
-	// È­¸é ¸¸µé±â
+	// í™”ë©´ ë§Œë“¤ê¸°
 	private Frame f = null;
 	private Panel[] lPan = null;
 	private Label[] lLabel = null;
@@ -36,18 +36,18 @@ public class Ex6ListView {
 		init();
 	}
 
-	public List getList(){
+	public List getList() {
 		return list;
 	}
-	
+
 	private void init() {
-		f = new Frame("°Ô½ÃÆÇ ¾²±â");
+		f = new Frame("ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		lPan = new Panel[2];
 		lLabel = new Label[3];
-		lBtn = new Button[1]; // 0: ÀúÀå, 1: Ãâ·Â
+		lBtn = new Button[1]; // 0: ì €ì¥, 1: ì¶œë ¥
 
-		initComponent(); // component ÃÊ±âÈ­
-		makeView(); // È­¸é ¸¸µé±â
+		initComponent(); // component ì´ˆê¸°í™”
+		makeView(); // í™”ë©´ ë§Œë“¤ê¸°
 	}
 
 	// initialization component method
@@ -59,12 +59,13 @@ public class Ex6ListView {
 	}
 
 	private void initComponent(Label[] l) {
-		String[] str = { "¹ø   È£", "Á¦   ¸ñ", "ÀÛ¼ºÀÚ" };
+		String[] str = { "ë²ˆ   í˜¸", "ì œ   ëª©", "ì‘ì„±ì" };
 
 		for (int i = 0; i < l.length; i++) {
 			l[i] = new Label(str[i]);
 		}
 	}
+
 	private void initComponent(Button[] btn) {
 		String[] str = { "gomain" };
 
@@ -73,35 +74,38 @@ public class Ex6ListView {
 			btn[i].addActionListener(actionListener);
 		}
 	}
+
 	private void initComponent(Panel[] p) {
 
-		LayoutManager[] layout = {new BorderLayout(), // basePanel
-				new GridLayout(1, 3) // topPanel - ¹øÈ£, Á¦¸ñ, ÀÛ¼ºÀÚ
+		LayoutManager[] layout = { new BorderLayout(), // basePanel
+				new GridLayout(1, 3) // topPanel - ë²ˆí˜¸, ì œëª©, ì‘ì„±ì
 		};
 
 		for (int i = 0; i < p.length; i++) {
 			p[i] = new Panel(layout[i]);
 		}
 	}
-	private void initComponent(List l){
+
+	private void initComponent(List l) {
 		list = new List();
 	}
 
-	private void setTPComponent(Panel p, List l){
+	private void setTPComponent(Panel p, List l) {
 		p.add(l);
 	}
-	private void setTPComponent(Panel p, Label[] lb){
-		for(int i=0; i<lb.length; i++){
+
+	private void setTPComponent(Panel p, Label[] lb) {
+		for (int i = 0; i < lb.length; i++) {
 			p.add(lb[i]);
 		}
 	}
-	
-	private void makeView(){
-		
-		for(int i=0; i<lPan.length; i++){
+
+	private void makeView() {
+
+		for (int i = 0; i < lPan.length; i++) {
 			switch (i) {
 			case 0:
-				
+
 				f.add(lBtn[i], BorderLayout.SOUTH);
 				f.add(lPan[i], BorderLayout.CENTER);
 				setTPComponent(lPan[i], list);
@@ -113,7 +117,7 @@ public class Ex6ListView {
 				break;
 			}
 		}
-		
+
 		f.setSize(250, 250);
 		f.addWindowListener(new WindowAdapter() {
 			@Override
@@ -125,5 +129,5 @@ public class Ex6ListView {
 		});
 		f.setVisible(true);
 	}
-	
+
 }
