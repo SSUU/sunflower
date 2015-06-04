@@ -1,0 +1,41 @@
+Quiz
+1. emp의 모든 데이터를 출력하는데, 급여를 clerk과 analyst는 5%, salseman과 manager은 10% 올려서 출력하시오
+
+- mysql
+	- select *, case when job = 'CLERK' then sal * 0.05 when job = 'ANALYST' then sal * 0.05 when job = 'SALESMAN' then sal * 0.1 when job = 'MANAGER' then sal * 0.1 else 0 end 인상급여 from emp;
+	- select *, case when job = 'CLERK' or job = 'ANALYST'  then sal * 0.05  when job = 'SALESMAN' or job = 'MANAGER' then sal * 0.1 else 0 end 인상급여 from emp;
+	- select *, case when job IN( 'CLERK','ANALYST') then sal * 0.05 when job IN('SALESMAN','MANAGER') then sal * 0.1 else 0 end 인상급여 from emp;
+
+- oracle
+	- select empno, ename, job, sal, decode(job, ‘CLERK’,(sal+sal * 0.05),
+						     ‘ANALYST’, (sal+sal * 0.05),
+						     ‘SALESMAN’, (sal+sal * 0.05),
+						     ‘MANAGER’, (sal+sal * 0.05),
+						      0))
+					      “인상급여” from emp;
+
+	- select empno, ename, job, sal, case when job = ‘CLERK’ then sal+(sal * 0.05)
+					      when job = ‘ANALYST’ then sal+(sal * 0.05)
+					      when job = ‘SALESMAN’ then sal+(sal * 0.05)
+					      when job = ‘MANAGER’ then sal+(sal * 0.05)
+					      else 0 end
+					     “인상급여” from emp;
+
+2. 입사일로부터 1985년 01월 01일 까지의 개월수를 구하여, 
+- 급여와 곱하라 
+- 개월수는 반올림함
+- 커미션이 있는 경우, 커미션을 12개월에 한번 지급한 것으로 계산
+// —————————————————————————— 미완성	
+	- select ename, hiredate, sal, nvl(comm, 0),
+		round(months_between(to_date(‘19850101’), hiredate)) month,
+		case when comm is not null
+			then (floor(months_between(to_date(‘19850101’),hiredate)) + sal*(round(months_between(to_date(‘19850101’),hiredate)/12),
+			else sal + (round(months_between(to_date(‘19850101’),hiredate))
+		end totalsal 
+	from emp order by hiredate;
+
+select ename, hiredate, sal,  ifnull(comm, 0), 
+	round(  period_diff(left( date_format(hiredate,’%Y%m%d’),6),left('19850101',6))) month ,
+	case when comm is not null then sal * round(  period_diff(left( date_format(hiredate,’%Y%m%d’),6),left('19850101',6)))
+	else round(  period_diff(19880901, date_format(hiredate,'%Y%m%d')))
+	end totalsal from emp;

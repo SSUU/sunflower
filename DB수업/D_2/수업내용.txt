@@ -1,0 +1,31 @@
+D - 2
+- Oracle 함수 Documentation
+https://docs.oracle.com/cd/E11882_01/server.112/e41084/functions.htm#SQLRF006  
+- Mysql 함수 Documentation 
+https://dev.mysql.com/doc/refman/5.1/en/index.html
+
+- Oracle에 있지만 Mysql에 없는 함수
+	- trunc(), initcap()
+	- engthb() -> char_length()
+		select char_length('nice to meet you') from dual;
+	- concat() -> mysql은 문자열 붙이는 연산자가 없음(붙이는 개수 제한 없음)
+		elect concat(ename,' ', job,' ',empno) from emp;
+	- to_char() -> date_format()
+		select date_format(now(),'%Y/%m/%d') from dual;
+		select concat('$',format(12345,2)) from dual;
+		select cast('19990901’ as date) from dual;
+	- round(DATE) ->  extract()
+		SELECT EXTRACT(YEAR FROM '2009-07-02');
+	- nvl() -> ifnull()
+		select ifnull(comm, 0) from emp;
+	- decode() -> if()
+		 select deptno , if(deptno= 10,10, '회계') result from emp;
+
+- GROUP BY
+	- GROUP BY {columnName} {order} ;
+
+select date_format(hiredate,'%Y%m%d'), hiredate from emp;
+select ename, hiredate, sal,  ifnull(comm, 0), round(  period_diff(19880901, date_format(hiredate,'%Y%m%d'))) month from emp;
+
+
+	
