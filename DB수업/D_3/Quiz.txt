@@ -1,0 +1,37 @@
+Quiz
+
+1. 직업별로 최고 급여, 최저 급여, 합계 급여, 평균 급여, 건수를 구하시오.
+- mysql
+	select job, max(sal), min(sal), sum(sal), avg(sal), count(*) from emp group by job;
+
+- oracle
+	select job, max(sal), min(sal), sum(sal), avg(sal), count(*) from emp group by job;
+
+2. 모든 사원의 급여 최고액, 최저액, 총액, 평균, 사원수를 구하시오.
+- mysql
+	select max(sal), min(sal), sum(sal), avg(sal), count(*) from emp;
+
+3. job 별로 급여 최고액, 최저액, 총액, 평균, 사원수를 구하시오. (group by job)
+- mysql
+	select job, max(sal), min(sal), sum(sal), avg(sal), count(*) from emp group by job;
+
+4. 모든 사원의 급여 최고액과 최저액의 차액을 구하시오.
+- mysql
+	select max(sal) - min(sal) from emp;
+
+5. deptno 별로 급여 최고액, 최저액, 총액, 평균, 사원수를 구하시오.(group by deptno)
+- mysql
+	select deptno, max(sal), min(sal), sum(sal), avg(sal), count(*) from emp group by deptno;
+
+6. 고객 테이블 생성 (속성:아이디, 비밀번호, 이름, 전화번호, 주소, 등급, 마일리지(숫자형))
+- mysql
+	create table customer( id varchar(10), pwd varchar(12), name varchar(20), phone_number varchar(13), level int, mileage int);
+7. 고객 테이블에 생년월일(복합속성)을 추가하세요.
+	alter table customer add column birthday date;
+8. 고객 데이터를 3건 입력하세요.
+	insert into customer values(‘no1’,’no11’,’park’,’01011111111’,0,100,date(’19880808’));
+	insert into customer values(‘no2’,’no22,’kim’,’01022222222’,1,200,date(’19990909’));
+	insert into customer values(‘no13,’no33’,’lee’,’010133333333’,2,300,date(’19881010’));
+
+9. 테이블을 삭제하세요.
+	drop table customer;

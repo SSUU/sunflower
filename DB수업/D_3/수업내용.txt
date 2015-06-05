@@ -1,0 +1,25 @@
+D - 3
+- GROUP BY {columnName}
+	columnName으로 그룹핑하여 하나의 결과를 출력 
+
+- HAVING 
+	GROUP BY {columnName} HAVING {expression} 
+	표현식(expression)으로 검색 결과에 제약을 걸 수 있음 (WHERE와 같이 검색 대상을 제한하는데 사용)
+	표현식은 그룹함수의 결과로만 사용 가능 (sum(sal) > 3000)
+	표현식은 GROUP BY 뒤의 columnName 또는 그룹 함수들(sum, in, avg 등)만 사용 가능
+	단, GROUP BY 에서만 사용됨
+
+- CHAR, VARCHAR, BLOB
+	문자를 저장하기 위한 DataType 
+	주의, DB 마다 DataType 다름
+
+- CLOB 
+	귀찮은 면이 있음(encoding, decoding 작업 요망)
+
+- UPDATE ~ SET ~
+	UPDATE {TableName} SET {columnName = value} {expression}
+	Table에서 표현식에서 같은 값을 찾아 변경하고자하는 value 값을 변경하고자하는 column에 변경함
+	표현식은 WHERE 절을 사용하는 것과 같음
+
+- TRANSACTION 
+	
