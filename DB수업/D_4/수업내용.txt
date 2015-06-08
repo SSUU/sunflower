@@ -1,0 +1,50 @@
+D - 4
+
+1. insert 문
+	- insert into {TableName} ({column1, column2, . . . }) values({value1, value2, . . . });
+	 * 입력할 속성의 이름과 값의 위치가 같아야함 
+	 * 주의 ! 속성의 DataType과 값의 DataType이 같으면 저장이 됨
+	 * TableName 뒤에 속성이름 리스트를 생략하는 경우는 모든 속성 값을 넣는 경우만 가능		
+	 * ex) insert into customer (cid, cpwd, cname, ctel, caddr, cgrade, cmileage) 
+		values(‘myID’,’myPWD’,’Park’,’010-1111-1111’, ‘실리콘’,1,1000);
+
+2. update 문
+	- update {TableName} set {수정할 column} = {수정할 값} where {수정할 대상의 조건 column} = ‘수정될 대상 값’;
+	 * 주의 ! 반드시 where 절과 함께 사용
+	 * 수정하려는 data만을 수정할 수 있도록 where절 사용 필요
+	 * where절과 함께 사용하지 않으면 엉뚱한 데이터 값이 변경됨
+	 * update 실행전에 select 사용하여 where절 검증	필요
+	 * ex) update customer set cadd = ‘중국’ where cadd = ‘’;
+	 * ex) update customer set cadd = ‘실리콘’ where cid in(‘apple’,’window’,’face’);
+
+3. delete 문 
+	- delete from {TableName} where {삭제할 대상 column} = {값};
+	 * 주의 ! 반드시 where 절과 함께 사용
+	 * 수정하려는 data만을 수정할 수 있도록 where절 사용 필요
+	 * where절과 함께 사용하지 않으면 엉뚱한 데이터 값이 삭제됨
+	 * delete 실행 전에 select 사용하여 where절 검증 필요
+	 * ex) delete from customer where cid = ‘mark’;
+	 * ex) delete from customer where cid in(‘mark’, ‘alli’);
+
+4. transaction 문
+	- 
+	 * 유저와 DB와의 상호작용
+	 * 유저의 행위(INSERT, UPDATE, DELETE 등)에 실수를 방지하기 위해 사용
+	 * AUTOCOMMIT 의 설정으로 유저가 직접 TRANSACTION을 할 수 있음 - 0 : ON, 1 : OFF
+	 * SHOW AUTOCOMMIT : 현재 AUTOCOMMIT 상태를 보여줌
+	 * SET AUTOCOMMIT {ON(OFF)} : TRANSACTION의 사용 설정
+
+5. foreign key - 외래키
+	- 
+	 * 하나의 Table에서 다른 Tabled에 자료를 참조할 수 있는 열쇠 역할
+	 * 
+
+6. primary key - 주키
+	-
+	 * 하나의 Table 내의 각각의 Data를 구별 가능하도록 만드는 고유 속성 (학번, 주민번호 등)
+	 * 
+
+7. join 
+	-
+	 * 두 개 이상의 Table을 foreign key를 이용하여 연결해서 조회하는 방법
+
