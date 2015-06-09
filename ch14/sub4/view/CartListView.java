@@ -2,6 +2,7 @@ package ch14.sub4.view;
 
 import java.awt.BorderLayout;
 import java.awt.Button;
+import java.awt.Checkbox;
 import java.awt.Color;
 import java.awt.Frame;
 import java.awt.GridLayout;
@@ -39,7 +40,7 @@ public class CartListView {
 	private final int P_BODY = P_TOP+1;
 	private final int P_BOTTOM = P_BODY+1;
 	// 화면을 구성하는 도화지, Frame 선언
-	Frame f = null;
+	private Frame f = null;
 
 	// 생성자를 통하여 초기화 작업	
 	public CartListView() {
@@ -48,6 +49,7 @@ public class CartListView {
 	
 	// Frame에 대한 초기화를 수행하는 메소드
 	private void init() {
+		
 		f = new Frame("쇼핑 카트 리스트");
 
 		initPanel();
@@ -98,9 +100,9 @@ public class CartListView {
 					c = Color.red;
 					break;
 				case P_BODY:// 현재 Panel이 BODY Panel일 경우 BorderLayout의 위치를 CENTER로 설정
-					// 배경색은 BLACK
+					// 배경색은 CYAN
 					position = BorderLayout.CENTER;
-					c = Color.black;
+					c = Color.cyan;
 					break;
 				case P_BOTTOM:// 현재 Panel이 BOTTOM Panel일 경우 BorderLayout의 위치를 SOUTH로 설정
 					// 배경색은 GREEN
@@ -173,14 +175,8 @@ public class CartListView {
 	// BODY Panel에 필요한 Component만을 추가하는 메소드
 	private void addBodyComponent(Panel p){
 		
-		String[] name = {"Body"};
-		String[] btnPosi = {BorderLayout.CENTER};
-		Button[] btn = new Button[name.length];
-		
-		for(int i=0; i<name.length; i++){
-			btn[i] = new Button(name[i]);
-			addComponent(p, btn[i], btnPosi[i]);
-		}
+		// 리스트 Panel을 bodyPanel에 추가
+		addComponent(p, resetListValue(p));
 		
 	}
 	
@@ -188,13 +184,14 @@ public class CartListView {
 	private void addBottomComponent(Panel p){
 		
 		String[] name = {"주문","취소"};
-//		String[] btnPosi = {BorderLayout.CENTER};
 		Button[] btn = new Button[name.length];
 		
 		for(int i=0; i<btn.length; i++){
 			btn[i] = new Button(name[i]);
 			addComponent(p, btn[i]);
 		}
+		
+		
 		
 	}
 
@@ -228,6 +225,53 @@ public class CartListView {
 		p.add(list, posi);
 		
 	}
+	// List 이라는 Component를 추가하는 메소드 - 2
+	// AWT 에서 List 객체를 커스텀하여 여러 Component(Checkbox, Label, Image 등)를 붙여서 표현하기가 어려움
+	// 그래서 List 처럼 보여주기 위해서 다르게 작성함
+	private void addComponent(Panel baseP, Panel addP){
+		baseP.add(addP, BorderLayout.CENTER);
+	}
 	// end of Method Overloading - addComponent
+	
+	// List의 값을 갱신하는 메소드
+	// List의 목록은 매번 값이 변경할 때마다 목록을 갱신을 수행 하는 메소드를 만듦
+	private Panel resetListValue(Panel p){
+		// 상품명, 상품가격을 배열로 저장하여 사용
+		String[] sValue = {"자동차","컴퓨터","자전거","핸드폰"};
+		String[] pValue = {"10,000","20,000","30,000","40,000"};
+		// Panel에는 Component만 추가할 수 있으므로, 상품명과 상품가격을 Component인 Label의 인스턴스로 생성하여 추가하기 위한 배열 
+		Label[] lbValue = new Label[sValue.length];
+		Label[] lbPriceValue = new Label[pValue.length];
+		// Checkbox의 Component들의 배열
+		Checkbox[] chBox = new Checkbox[sValue.length];
+		// 체크박스, 상품명, 상품가격을 하나의 Panel에 추가하기 위한 배열
+		// 위와 같이 3개의 Component들을 하나로 묶어 리스트처럼 보여주기 위해서 사용
+		Panel[] pList = new Panel[sValue.length];
+		// Panel 배열들을 묶어서 bodyPanel에 추가하기 위한 Panel
+		Panel basePanel = new Panel(new GridLayout(sValue.length, 1));
+		
+		// 상품만큼 리스트 목록을 만드는 반복문
+		for(int i=0; i<pList.length; i++){
+			// 배열은 저장할 수 있는 빈 방일뿐 이므로, 실제 인스턴스를 생성하여 배열 i번째 방이 참조하도록 해야 함
+			lbValue[i] = new Label(sValue[i]);
+			lbPriceValue[i] = new Label(pValue[i]);
+			chBox[i] = new Checkbox();
+			pList[i] = new Panel(new BorderLayout());
+			
+			// 각각의 Component(체크박스, 상품명, 상품가격)들을 하나의 panel에 추가
+			// 하나의 열처럼 보여주기 위해서 수행
+			pList[i].add(chBox[i], BorderLayout.WEST);
+			pList[i].add(lbValue[i], BorderLayout.CENTER);
+			pList[i].add(lbPriceValue[i], BorderLayout.EAST);
+			
+			// 각각의 배열 panel을 basePanel에 추가하면 리스트처럼 보여지게 할 수 있음
+			basePanel.add(pList[i]);
+			
+		}
+		
+		// 리스트처럼 만든 basePanel의 인스턴스를 반환해줌
+		return basePanel;
+		
+	}
 
 }
