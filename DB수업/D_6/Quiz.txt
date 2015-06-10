@@ -1,0 +1,76 @@
+Quiz
+
+1. emp 테이블에서 sal이 emp 전체의 sal 평균 이상인 자를 찾으세요. (name, sal 출력)
+- mysql
+	- select ename, sal from emp where sal >= (select avg(sal) from emp);
+
+2. emp 테이블에서 부서명에 sale이 들어가는 부서 직원들 정보를 출력
+- mysql
+	- select * from emp where deptno = (select deptno from dept where dname like ’%sale%');	
+	- select *, (select dname from dept dd where deptno = emp.deptno ) 부서명 from emp where deptno = (select deptno from dept where dname like ‘%sale%');
+
+3. 급여가 2500 이상인 직원들의 부서명을 출력.
+- mysql
+	-  select dname from dept where deptno in (select deptno from emp where sal >= 2500);
+	
+
+4. sub query로 client, product, company, orderlist 테이블 구조만 복사
+- mysql
+	- create table client2 as (select * from client where 1=0);
+	- create table product2 as (select * from product where 1=0);
+	- create table company2 as (select * from company where 1=0);
+	- create table orderlist2 as (select * from orderlist where 1=0);
+
+5. sub query로 client, product, company, orderlist 내용 복사
+	- insert into client2  (select * from client);
+	- insert into product2  (select * from product);
+	- insert into company2  (select * from company);
+	- insert into orderlist2  (select * from orderlist);
+
+6. 롯데제과의 제품을 구매한 고객 이름 출력
+- mysql
+	
+
+7. 구매 건수가 2건 이상인 고객의 고객정보를 출력
+- mysql 
+	- select * from client where cid in (select cid from orderlist group by cid having count(cid) >= 2);
+
+8. 전화번호에 1이 들어가는 회사의 모든 제품 정보 출력
+- mysql
+	- select * from product where comid in (select comid from company where comtel like '%1%');
+
+9. 가격이 1000원 이상인 제품을 생산하는 회사 이름
+- mysql
+	- select comname from company where comid in (select comid from product where pprice >= 1000);
+
+
+10.2건 이상 구매 고객의 구매 등급을 2등급 마일리지를 100 추가
+- mysql
+	- update client set cgrade = 2, cmileage = 1100 where cid in (select cid from orderlist group by cid having count(cid) >=2);
+
+11. 새우탕면의 가격을 빼빼로의 가격으로 엎어 치시오.
+- mysql
+	- update product2 set pprice = (select pprice from product where pname='빼빼 로') where pname = '새우탕면';
+
+12. 농심 제품을 구매한 고객의 정보 출력
+- mysql
+	- select * from client where cid in (select cid from orderlies where pid = (select pid 
+
+< join >
+13. 부서명 sale이 들어가는 부서 직원들 정보를 출력
+- mysql
+	-
+14. 급여가 2500 이상인 직원들의 부서명을 출력
+- mysql
+	-
+
+15. 전화번호에 1이 들어가는 회사의 모든 제품 정보 출력
+
+16. 가격이 1000 이상인 제품을 생산하는 회사 이름
+
+17. 농심 제품을 구매한 고객의 정보 출력
+
+18. sal이 emp 전체의 sal 평균 이상인 직원 정보를 모두 출력
+	- select * from emp e1, (select avg(sal) avgsal from emp ) e2 where e1.sal > e2.avgsal;
+
+	

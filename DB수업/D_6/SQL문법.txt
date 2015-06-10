@@ -1,0 +1,38 @@
+SQL 
+- CREATE
+	CREATE TABLE {TableName} (
+		{columnName1}  {DataType},
+		{columnName2}  {DataType},
+		{columnName3}  {DataType},
+			. . .
+			. . .
+	);
+
+- INSERT
+	INSERT INTO {TableName} VALUES({value1, value2 , . . .});
+
+- SELECT 
+	SELECT {column1, column2, . . . } FROM {TableName} [WHERE {expression}] ;
+
+- ALTER
+	- ADD
+	  ALTER TABLE {TableName} ADD {columnName} {DataType} ;
+
+	- MODIFY
+	  ALTER TABLE {TableName} MODIFY {columnName} {DataType}  ;
+
+	- DROP
+	  ALTER TABLE {TableName} DROP COLUMN {columnName} ;
+
+	- RENAME
+	  ALTER TABLE {TableName} RENAME COLUMN {columnName} TO {New ColumnName} ;
+
+- CONSTRAINT
+	- ADD
+	  ALTER TABLE {TableName} ADD {columnName} {DataType} [ {expression} ] ;
+
+	- MODIFY
+	  ALTER TABLE {TableName} MODIFY {columnName} {DataType} [ {expression} ] ;
+
+	- DROP
+	  ALTER TABLE {TableName} DROP COLUMN {expression} {alias} ;

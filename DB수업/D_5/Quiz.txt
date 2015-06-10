@@ -1,0 +1,60 @@
+Quiz
+
+1. Orderlist의 모든 항목을 출력 cid를 가진 사람 이름도 같이 출력하라
+- mysql
+	- equi join
+	  select o.oid, o.cid, o.pid, o.oqty, o.oprice, o.otel, o.oaddr, o.odate, c.cname from orderlist o , client c where o.cid = c.cid;
+	- inner join
+	  select o.oid, o.cid, o.pid, o.oqty, o.oprice, o.otel, o.oaddr, o.odate, c.cname from orderlist o inner join client c on o.cid = c.cid;
+
+
+2. Product의 모든 항목을 출력 Company의 모든 내용을 출력하라
+- mysql
+	- equi join
+	  select p.pid, p.pname, p.pqty, p.pprice, p.comid, c.comid, c.comname, c.comloc, c.comtel from product p, company c where p.comid = c.comid;
+	- inner join
+	  select p.pid, p.pname, p.pqty, p.pprice, p.comid, c.comid, c.comname, c.comloc, c.comtel from product p inner join company c on p.comid = c.comid;
+
+
+3. Orderlist의 모든 항목을 출력 제품의 이름을 함께 출력하라
+- mysql
+	- equi join
+	  select o.oid, o.cid, o.pid, o.oqty, o.oprice, o.otel, o.oaddr, o.odate, p.pname from orderlist o , product p where o.pid = p.pid;
+	- inner join
+	  select o.oid, o.cid, o.pid, o.oqty, o.oprice, o.otel, o.oaddr, o.odate, p.pname from orderlist o inner join product p on o.pid = p.pid;
+
+
+4. Orderlist의 모든 항목을 출력 고객의 이름과 제품의 이름을 출력하라
+- mysql
+	- equi join
+	  select o.oid, o.cid, o.pid, o.oqty, o.oprice, o.otel, o.oaddr, o.odate, c.cname,  p.pname from orderlist o ,client c , product p where o.pid = p.pid and  o.cid = c.cid order by o.oid;
+
+
+5. Orderlist의 모든 항목을 출력 고객의 이름과 제품의 이름과 제조사의 이름을 출력하라
+-mysql 
+	- equi join
+	   select o.oid, o.cid, o.pid, o.oqty, o.oprice, o.otel, o.oaddr, o.odate, c.cname,  p.pname, com.comid from orderlist o ,client c , product p, company com where o.pid = p.pid and  o.cid = c.cid and p.comid = com.comid order by o.oid;
+
+
+6. Orderlist oid에 pk 제약 추가 alter 사용
+- mysql
+	alter table orderlist modify oid double(5,0) primary key not null;
+
+**************************************************************************************************
+* mysql에서 foreign key는 primary key만 참조 가능
+* 참조 대상이 primary key로 지정되어 있어야함
+7. Orderlist cid에 fk 제약 추가 alter 사용
+- mysql
+	alter table orderlist add foreign key (cid) references client (cid);
+
+8. Orderlist pid에 fk 제약 추가 alter 사용
+
+9. Orderlist oqty에 ck 제약 (oqty>0) 추가 alter 사용
+
+10.Orderlist oprice에 ck 제약 (oprice>0) 추가 alter 사용
+
+11. Orderlist otel에 nn 제약 추가 alter 사용
+
+12. Orderlist oaddr에  nn 제약 추가 alter 사용
+
+13. Orderlist odate에 defualt 제약(sysdate) 추가 alter 사용
