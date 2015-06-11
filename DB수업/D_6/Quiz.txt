@@ -54,21 +54,28 @@ Quiz
 
 12. 농심 제품을 구매한 고객의 정보 출력
 - mysql
-	- select * from client where cid in (select cid from orderlies where pid = (select pid 
+	- select * from client where cid in (select cid from orderlist where pid in  (select pid from product where comid = (select comid from company where comname = '농심')));
 
 < join >
 13. 부서명 sale이 들어가는 부서 직원들 정보를 출력
 - mysql
-	-
+	-select * from emp e, dept d where e.deptno = d.deptno and d.dname like '%sale%';
+
 14. 급여가 2500 이상인 직원들의 부서명을 출력
 - mysql
-	-
+	- select d.dname from dept d, emp e where d.deptno = e.deptno and e.sal >= 2500;
 
 15. 전화번호에 1이 들어가는 회사의 모든 제품 정보 출력
+- mysql
+	- select * from product p , company c where p.comid = c.comid and c.comtel like '%1%';
 
 16. 가격이 1000 이상인 제품을 생산하는 회사 이름
+- mysql
+	- select distinct c.comname from company c, product p where c.comid = p.comid and p.pprice >= 1000;
 
 17. 농심 제품을 구매한 고객의 정보 출력
+- mysql 
+	-  select distinct c.*  from client c, orderlist o, product p, company com where c.cid in (o.cid) and o.pid in (p.pid) and p.comid = com.comid and com.comname='농심';
 
 18. sal이 emp 전체의 sal 평균 이상인 직원 정보를 모두 출력
 	- select * from emp e1, (select avg(sal) avgsal from emp ) e2 where e1.sal > e2.avgsal;

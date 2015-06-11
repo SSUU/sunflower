@@ -26,6 +26,8 @@ SQL
 
 	- RENAME
 	  ALTER TABLE {TableName} RENAME COLUMN {columnName} TO {New ColumnName} ;
+	  - mysql
+	  ALTER TABLE {TableName} CHANGE {columnName} {New columnName} {DataType};
 
 - CONSTRAINT
 	- ADD
@@ -36,3 +38,26 @@ SQL
 
 	- DROP
 	  ALTER TABLE {TableName} DROP COLUMN {expression} {alias} ;
+
+- VIEW
+	- CREATE
+	  CREATE VIEW {ViewName} ( {columns} );
+	  CREATE VIEW {ViewName} as SELECT {columns} FROM {TalbeName} [ WHERE {expression} ] ;
+	- REPLACE
+	  CREATE OR REPLACE VIEW {ViewName} as SELECT {columns} FROM {TalbeName} [ WHERE {expression} ] ;
+	- OPTION
+	  CREATE OR REPLACE VIEW {ViewName} as SELECT {columns} FROM {TalbeName} [ WHERE {expression} | WHIT {OPTION} ] ;
+
+- SEQUENCE : ORACLE 
+	- CREATE
+	  CREATE SEQUENCE {SequenceName} 
+		[ START WITH {start Number} ]
+		[ INCREMENT BY {increment Value}]
+		[ MAXVALUE {MAX Value | NOMAXVALUE} ]
+		[ MINVALUE {MIN Value | NOMINVALUE} ]
+		[ CYCLE | NOCYCLE ]
+		[ CACHE | NOCACHE ] ;
+	- DROP
+	  DROP SEQUENCE {SequenceName} ;
+
+- INDEX 
