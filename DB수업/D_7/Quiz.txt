@@ -1,0 +1,6 @@
+Quiz
+
+1. oid cid cname pid pname comname pprice oqty oprice otel oaddr odate 보고 싶은 view를 만들기
+- mysql
+	- m.comname comname, p.pprice pprice, o.oqty oqty, o.oprice oprice, o.otel otel, o.oaddr oaddr, o.odate odate from orderlist o, client c, product p, company com where 1 = 0;
+

@@ -61,3 +61,19 @@ SQL
 	  DROP SEQUENCE {SequenceName} ;
 
 - INDEX 
+
+
+- GRANT : MySQL
+	* 사용자에게 CREATE, INSERT, SELECT 등 사용 권한을 주어 DB의 보안성을 높임
+	- CREATE USER 
+	  CREATE USER {user id}@localhost IDENTIFIED BY ‘{password}’;
+	- DROP USER 
+	  DROP USER {user id}@localhost;
+	- GRANT
+	  * 종류 : ALL, SELECT, INSERT, UPDATE 등
+	  GRANT {grant} PRIVILEGES ON {DB 명}.* TO {user id}@localhost IDENTIFIED BY ‘{password}’;
+	- FLUSH PRIVILEGES : 변경된 내용을 메모리에 반영 (권한 적용)
+	- REVOKE : 권한 해지
+	  REVOKE {grant} ON {DB 명}.* from {user id}@localhost;
+
+		
