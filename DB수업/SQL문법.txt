@@ -71,9 +71,31 @@ SQL
 	  DROP USER {user id}@localhost;
 	- GRANT
 	  * 종류 : ALL, SELECT, INSERT, UPDATE 등
-	  GRANT {grant} PRIVILEGES ON {DB 명}.* TO {user id}@localhost IDENTIFIED BY ‘{password}’;
+	  GRANT {grant} PRIVILEGES ON {DB_NAME.TABLE_NAME} TO {user id}@localhost IDENTIFIED BY ‘{password}’;
 	- FLUSH PRIVILEGES : 변경된 내용을 메모리에 반영 (권한 적용)
 	- REVOKE : 권한 해지
-	  REVOKE {grant} ON {DB 명}.* from {user id}@localhost;
+	  REVOKE {grant} ON {DB_NAME.TALBE_NAME} from {user id}@localhost;
 
-		
+- GRANT : ORACLE
+	- CREATE USER
+	  CREATE USER {user id} identified by {password};
+	- CREATE SESSION
+	   GRANT CREATE SESSION TO {user id};
+	- CREATE TABLE
+	  GRANT CREATE TABLE TO {user id};	
+	- ALTER USER
+	  ALTER USER {user id} DEFAULT TABLESPACE users QUOTA UNLIMITED ON users;
+	- GRANT
+	  GRANT {grant} PRIVILEGES ON {DB_NAME.TABLE_NAME} TO {user id};
+	  * 종류 : ALL, SELECT, INSERT, UPDATE 등
+
+- ROLE : ORACLE
+	- CREATE
+	  CREATE ROLE {ROLE_NAME};
+	- GRANT
+	  GRANT {grant} TO {ROLE_NAME};
+	  GRANT {grant} ON {DB_NAME.TABLE_NAME} TO {ROLE_NAME};
+	- DROP
+	  DROP ROLE {ROLE_NAME};
+
+	

@@ -1,0 +1,29 @@
+PL/SQL
+
+- set
+	- set server output on;
+	- DBMS_OUTPUT.PUT_LINE(‘AAA’); -> AAA 출력
+	* 화면에 출력하기 위해서 설정
+
+- declare
+	- {Var_Name} {Data_Type} ;
+	- tint number(4,0);
+	* 변수 선언부
+
+	- {Var_Name} {Table_Name}.{Column} % TYPE;
+	* 변수의 DataType을 Table의 Column과 같이 하라 
+
+- begin
+	- begin
+	* 시작 명령
+
+- end
+	- end;/
+	* 종료 명령
+
+- := 
+	- {var} := {value};
+	- tno := 0;
+	* 대입 연산자 
+	
+	- SELECT {column} INTO {var} FROM {Table_Name} WHERE {exprssion};

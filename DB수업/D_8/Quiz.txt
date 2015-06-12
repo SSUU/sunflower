@@ -1,0 +1,112 @@
+Quiz
+
+1. sysdba - user5 - user55 - user57 을 만들고 user57에 emp 테이블을 만들라
+
+	- sysdba
+	  create user user5 identified by 1111;
+	  grant create user to user5 with admin option;
+	  grant create session to user5 with admin option;
+	  grant create table to user5 with admin option;
+
+	  alter user user57 default tablespace users quote unlimited on uses;
+	  grant create privileges on scott.emp to user57;
+
+	- user5
+	  create user user55 identified by 1111;
+	  grant create user to user55;
+	  grant create session to user55;
+	  grant create table to user55 with admin option;
+
+	- user55
+	  create user user57 identified by 1111;
+	  grant session to user57;
+	  grant create table to user57 with admin option;
+
+	- user57 
+	  create table emp as select * scott.emp;
+
+2. 
+create role test role;
+grant create session, create table to test role;
+create user user77 identified by 1111;
+grant testrole to user77;
+alter user user77 default tablespace users quota unlimited on users;
+drop role testrole;
+
+3. scott emp, dept, salgrade륿 select 할 수 있는 role 만들기
+(grant : create session, create table, select) user99에게 상기 롤을 부여하고
+단, tablesapce는 sysdba로 만드세요. 그리고 user99로 로그인 후 scott emp, dept, salgrade륿 synonym으로 만드세요.
+
+	- user 생성하기
+	  create user user99 identified by 1111;
+	- role 만들기
+	  create role user9role;
+	- role에게 권한 지정하기	  
+	  grant create session, create table, create synonym select on scott.emp to user9role;
+	  grant all privileges on scott.emp to user9role;
+	  grant all privileges on scott.dept to user9role;
+	  grant all privileges on scott.salgrade to user9role;
+
+	- sysdba에서 user99에게 role으로 권한을 주기
+	  grant user9role to user99;
+	  alter user user99 default tablespace users quota unlimited on users;
+	- user99로 로그인
+	  create synonym scott_emp for scott.emp;
+	  create table empcopy as select * from scott_emp;
+
+	- revoke
+	  revoke user9role from user99;
+
+	- drop role
+	  drop role user9role;
+
+	- drop user
+	  drop user user99;
+
+4. empno, ename, job, sal, deptno를 smith의 정보를 출력하시오 
+	- declare
+		tempno emp.empno%type;
+		tname emp.ename%type;
+		tjob emp.job%type;
+		tsal emp.sal%type;
+		tdeptno emp.deptno%type;
+	  begin
+		select empno, ename, job, sal, deptno into tempno, tname, tjob, tsal, tdeptno  from emp where name=‘SMITH’;
+
+		DBMS_OUTPUT.PUT_LINE(tempno);
+		DBMS_OUTPUT.PUT_LINE(tname);
+		DBMS_OUTPUT.PUT_LINE(tjob);
+		DBMS_OUTPUT.PUT_LINE(tsal);
+		DBMS_OUTPUT.PUT_LINE(tdeptno);
+	  end;/
+
+5. 4번과 같은 문제인데 deptno 대신 dname을 출력하시오
+	- declare
+		tno emp.empno%type;
+		tname emp.ename%type;
+		tjob emp.job%type;
+		tsal emp.sal%type;
+		tdname dept.dname%type;
+
+	  begin
+		select e.empno, e.ename, e.job, e.sal, d.dname into tno, tname, tjob, tsal, tdname from emp e, dept d where e.ename = ‘SMITH’and e.deptno = d.deptno;
+
+		DBMS_OUTPUT.PUT_LINE(tno || ‘ ‘ || tname || ‘ ‘ || tjob || ‘ ‘ ||tsal|| ‘ ‘ ||tdname);
+
+	  end;/
+
+6. SMITH의 부서번호를 IF문으로 돌려서 10:회계부, 20:연구부, 30:영업부, 40:운영부 출력하시오
+	- delcare
+		tno dept.deptno%type;
+
+	  begin
+		select deptno into tno from emp where e.ename = ‘SMITH;
+		if(tno = 10) then DBMS_OUTPUT.PUT_LINE(‘회계부’);
+		elsif(tno = 20) then DBMS_OUTPUT.PUT_LINE(‘연구부’);
+		elsif(tno = 30) then DBMS_OUTPUT.PUT_LINE(‘영업부’);
+		elsif(tno = 40) then DBMS_OUTPUT.PUT_LINE(‘운영부’);
+		else DBMS_OUTPUT.PUT_LINE(‘부서가 없어요’);
+		end if;
+	end;/
+
+7. 

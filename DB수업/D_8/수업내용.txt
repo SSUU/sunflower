@@ -1,0 +1,104 @@
+- PL/SQL
+
+1. 기본	
+ declare tint number(4,0);
+  tchar varchar2(30);
+ begin
+ 	tint := 777;
+	tchar := ‘hello’;
+	DBMS_OUTPUT.PUT_LINE(tint);
+	DBMS_OUTPUT.PUT_LINE(tchar);
+ end;/
+
+
+3. Table의 Column의 DataType으로 정의
+ declare 
+  tnum emp.empno%type;
+  tchar emp.ename%type;
+ begin
+ 	tint := 555;
+	tchar := ‘hi’;
+	DBMS_OUTPUT.PUT_LINE(tnum);
+	DBMS_OUTPUT.PUT_LINE(tchar);
+ end;/
+
+
+4. select를 통해 값 대입
+ declare 
+  tno emp.empno%type;
+ begin
+	select empno into tno from emp where ename=’SMITH’;
+	DBMS_OUTPUT.PUT_LINE(tno);
+ end;/
+
+5. 외부 입력을 통해 출력
+ delclare
+  innum number(4,0);
+  incahr varchar(30);
+ begin
+  innum := &innum;
+  inchar := &incahr;
+  DBMS_OUTPUT.PUT_LINE(innum|| ‘ ‘|| incahr);
+ end;/
+
+6. SMITH를 받아서 dname 찾기 (join 금지)
+declare
+  inname emp.ename%type;
+  dno emp.deptno%type;
+  dnm dept.danme%type;
+begin
+  select deptno into dno from emp where ename=&inname;
+  select dname into dnm from dept where deptno = dno;
+
+  DBMS_OUTPUT.PUT_LINE(dno||’ ’||dnm);
+end;/
+  
+
+7. if문
+declare
+  tno number(2,0);
+begin
+  tno := 2;
+  if(tno = 1) then DBMS_OUTPUT.PUT_LINE(‘1111’);
+  elsif(tno = 2) then DBMS_OUTPUT.PUT_LINE(‘2222’);
+  elsif(tno = 3) then DBMS_OUTPUT.PUT_LINE(‘3333’);
+  else DBMS_OUTPUT.PUT_LINE(‘else’);
+  end if;
+
+end;/
+
+8. loop 반복문 - 1
+declare
+  lno number(2,0);
+begin
+  lno := 1;
+  loop
+	DBMS_OUTPUT.PUT_LINE(lno);
+	lno := lno + 1;
+
+	if(lno > 10) then exit;
+	end if;
+  end loop;
+end;/
+
+
+9. while 반복문 - 2
+declare
+  tno number(2,0);
+begin
+  tno := 1;
+  while tno < 11 loop
+	DBMS_OUTPUT.PUT_LINE(lno);
+	tno := tno + 1;
+  end loop;
+end;/
+
+10. for 반복문 - 3
+declare
+  tno number(2,0);
+begin
+  tno := 1;
+  for tno in 1..11 loop
+	DBMS_OUTPUT.PUT_LINE(lno);
+  end loop;
+end;/
