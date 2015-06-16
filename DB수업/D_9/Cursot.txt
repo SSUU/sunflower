@@ -1,0 +1,58 @@
+Cursor
+
+- Ex - 1
+  CREATE OR REPLACE PROCEDURE csr_proc1 
+	IS
+	  deptvar dept%ROWTYPE;
+	  CURSOR cs is select * from dept;
+	BEGIN
+	  OPEN cs;
+	  FETCH cs into deptvar;
+	  DBMS_OUTPUT.PUT_LINE(deptvar.deptno ||’ ‘|| deptvar.dname);
+	END;
+  SET SERVEROUTPUT ON; 
+  EXECUTE csr_proc1;
+
+- Ex - 2
+  CREATE OR REPLACE PROCEDURE csr_proc1 
+	IS
+	  deptvar dept%ROWTYPE;
+	  CURSOR cs is select * from dept;
+	BEGIN
+	  OPEN cs;
+	  FETCH cs into deptvar;
+	  DBMS_OUTPUT.PUT_LINE(deptvar.deptno ||’ ‘|| deptvar.dname);
+	  FETCH cs into deptvar;
+	  DBMS_OUTPUT.PUT_LINE(deptvar.deptno ||’ ‘|| deptvar.dname);
+	END;
+  EXECUTE csr_proc1;
+
+- Ex - 3
+  CREATE OR REPLACE PROCEDURE csr_proc2 
+	IS
+	  CURSOR cs is select empno, name, job, sal, dname from emp, dept where emp.deptno = dept.deptno ;
+ 	  var cs%ROWTYPE;
+	BEGIN
+	  OPEN cs;
+	  FETCH cs into var;
+	  DBMS_OUTPUT.PUT_LINE(var.empno ||’ ‘|| var.ename||’ ‘||var.job||’ ‘||var.sal||’ ‘||var.dname);
+	  FETCH cs into var;
+	  DBMS_OUTPUT.PUT_LINE(var.empno ||’ ‘|| var.ename||’ ‘||var.job||’ ‘||var.sal||’ ‘||var.dname);
+	END;
+  EXECUTE csr_proc2;
+
+- Ex - 4
+  CREATE OR REPLACE PROCEDURE csr_proc3 
+	IS
+	  CURSOR cs is select empno, name, job, sal, dname from emp, dept where emp.deptno = dept.deptno ;
+ 	  var cs%ROWTYPE;
+	BEGIN
+	  OPEN cs;
+	  LOOP 
+	  FETCH cs into var;
+	  EXIT WHEN cs%NOTFOUND;
+	  DBMS_OUTPUT.PUT_LINE(var.empno ||’ ‘|| var.ename||’ ‘||var.job||’ ‘||var.sal||’ ‘||var.dname);
+	  END LOOP;
+	END;
+  EXECUTE csr_proc3;
+

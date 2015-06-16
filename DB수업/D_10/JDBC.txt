@@ -1,0 +1,42 @@
+JDBC : Java Database Connect
+
+- SQLDeveloper -> DBMS 접속
+	1 SQLDeveloper 실행
+	2 ID/PWD/DBMS(IP,PORT,DB이름) 접속 요청
+	3 SQL 실행 (INSERT, SELECT . . . )
+	4 실행 결과 확인
+	5 Connection 해제 (SQLDeveloper 종료)
+
+- JDBC -> DBMS 접속
+	1 Client 모듈 실행 (프로그램 조각 메모리 로드)
+	2 ID,PWD,IP,PORT, DB이름 접속 요청
+	3 SQL 실행 (실행과정 코딩)
+	4 실행결과 확인 (우리가 뿌리는거 코딩)
+	5 Connection 해제 (connection.close())
+
+- Oracle
+		// Project -> Properties -> java Build Path -> Libraries -> Add External Jars -> ojdb5.jar 추가 
+		// 1 - 클라이언트 모듈 메모리 로딩
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		// 2 - id, pwd, ip, port, db_name connection 연결
+		String id = "scott";
+		String pwd = "tiger";
+		String url = "jdbc:oracle:thin:@127.9.9.1:1521/xe";
+		Connection conn = DriverManager.getConnection(url, id, pwd); 
+		// 3 - DML(SELECT, INSERT, UPDATE, DELETE) 전송
+		Statement stmt = conn.createStatement();
+		String sql = "select empno, ename, job, sal from emp";
+		ResultSet rs = stmt.executeQuery(sql);
+		// 4 - 결과 확인
+		while(rs.next()){
+			System.out.println(rs.getInt(1)+"\t");
+			System.out.println(rs.getString("ename")+"\t");
+			System.out.println(rs.getString(2)+"\t");
+			System.out.println(rs.getDouble("sal")+"\t");
+
+		}
+
+		// 5 - connection close 연결 해제 
+		rs.close();
+		stmt.close();
+		conn.close();

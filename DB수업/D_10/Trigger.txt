@@ -1,0 +1,35 @@
+Trigger
+
+- CREATE
+  CREATE OR REPLACE TRIGGER {Trigger_Name} {BEFORE | AFTER} {EVENT} ON {Table_Name} [FOR EACH ROW] [ WHEN {condition} ] ;
+
+
+- Ex - 1
+  
+  CREATE SEQUENCE prodsale_saleno_seq
+	start with 1
+	increment by 1;
+	maxvalue 9999;
+  
+  CREATE OR REPLACE TRIGGER prodsale_ins_tri
+	AFTER insert ON prodsale FOR EACH ROW
+	BEGIN
+	  UPDATE prodstock set stockqty = stockqty - :new.saleqty WEHRE prodno = :new.prodno; 
+	END;
+
+  INSERT INTO prodsale VALUES(to_char(sysdate,’YYMMDD’)||prodsale_saleno_seq.nextval, 1, 5);
+
+
+- Ex - 2
+  
+  CREATE OR REPLACE TRIGGER prodsale_del_tri
+	AFTER delete ON prodsale FOR EACH ROW
+	BEGIN
+	  UPDATE prodstock set stockqty = stockqty + :old.saleqty WEHRE prodno = :old.prodno; 
+	END;
+
+  DELETE FROM prodsale WHERE saleno = 1506161;
+
+
+
+  

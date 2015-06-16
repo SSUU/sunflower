@@ -1,0 +1,60 @@
+Procedure
+
+- CREATE - 1
+  CREATE OR REPLACE FUNCTION {Function_Name} RETURN {Return_DataType}
+   IS 
+   BEGIN
+	RETURN {Value};
+   END;
+
+- EXECUTE - 1
+  VARIABLE {Var_Name} {DataType};
+  EXECUTE : {Var_Name} := {Function_Name};
+  [ print Var_Name ];
+
+
+- CREATE - 2
+  CREATE OR REPLACE FUNCTION {Function_Name} RETRURN {Return_Datatype}
+   IS {Var_Name} {DataType};
+   BEGIN
+	[ SELECT {column} INTO {Var_Name} FROM {Table_Name} WHERE {expression} ] RETURN {Var_Name};
+   END;
+
+- EXECUTE - 2
+  VARIABLE {Var_Name} {DataType};
+  EXECUTE : {Var_Name} := {Function_Name};
+  [ print Var_Name ];
+
+
+- CREATE - 3
+  CREATE OR REPLACE FUNCTION {Function_Name} ({Arg_Name} IN {DataType}) 
+    RETRUN {Return_DataType} 
+    IS {Var_Name} {DataType} ;
+    BEGIN
+	[ SELECT {column} INTO {Var_Name} FROM {Table_Name} WHERE {expression};
+	RETURN {Var_Name};
+    * expression : column = Arg_Name;
+
+- EXECUTE - 3
+  VARIABLE {Var_Name} {DataType};
+  EXECUTE : {Var_Name} := {Function_Name(Arguments)};
+  [ print {Var_Name} ];
+
+
+- Ex - 1
+  CREATE OR REPLACE PROCEDURE test_proc
+  (enm in emp.ename%type, eno out emp.empnoe%type, enmo out emp.ename%type, ejob out emp.ejob%type)
+  IS
+	
+	
+  BEGIN
+	SELECT empno,ename, job into eno, enmo, ejob FROM emp WHERE ename = enm;
+  END;
+
+  VARIABLE var1 varchar2;
+  VARIABLE var2 varchar2;
+  VARIABLE var3 varchar2;
+  EXECUTE test_proc(‘SMITH’,:var1, :var2, :var3);
+  print var1;
+  print var2;
+  print var3;

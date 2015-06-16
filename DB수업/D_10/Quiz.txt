@@ -1,0 +1,10 @@
+Quiz
+
+1. sale qty가 update 됬을 때, stockqty update 트리거 작성
+- oracle
+	- CREATE OR REPLACE TRIGGER prodsale_upd_tri 
+		AFTER update ON prodsale FOR EACH ROW 
+		BEGIN
+			UPDATE prodstock set stockqty = stockqty + :old.saleqty - :new.saleqty WHERE prodno = :new.prodno;
+		END;
+	- UPDATE prodsale set saleqty = 20 WHERE saleno = 1506161;
