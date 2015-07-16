@@ -1,5 +1,4 @@
 SQL 
-
 - CREATE
 	CREATE TABLE {TableName} (
 		{columnName1}  {DataType},
@@ -11,6 +10,9 @@ SQL
 
 - INSERT
 	INSERT INTO {TableName} VALUES({value1, value2 , . . .});
+
+- DELETE 
+	DELETE FROM {TableName} WHERE {expression};
 
 - SELECT 
 	SELECT {column1, column2, . . . } FROM {TableName} [WHERE {expression}] ;
