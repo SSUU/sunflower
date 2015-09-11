@@ -1,0 +1,23 @@
+- 해야할일
+1. 로그인
+	- 보안코드 간단한걸로 교체
+	- 페이스북 정보 가져오기
+	- 세션을 통한 로그인 유효성 검사
+	- DB 설계
+2. 방개설
+	- 방 개설시 페이스북에 자동 글 올리기(+ 링크)
+
+
+개발환경
+
+- JAVA 7
+- Tomcat 7
+- Encode type : UTF-8
+
+FrameWork & Library
+- Spring Framework
+- jdbc : ojdbc14
+- orm : ibatis-2.3.4.726
+- upload : commons-fileupload-1.2, commons-io-1.3
+
+
