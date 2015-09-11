@@ -24,7 +24,6 @@
 </div>
 
 <script src="../js/newuser.js" />
-
 </body>
 
 </html>

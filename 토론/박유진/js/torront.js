@@ -1,14 +1,35 @@
 $(document).ready(function(){
         headerControll();
+		// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+		// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         // session 을 통한 로그인 유효성 검사
         // li 태그 로그인 text를 마이페이지로 변경
         menuControll();
+        
 });
 
 function menuControll(){
-	$("#userMenu").click(function(){
+	$(".navigator").load("./navi.html", function() {
+		$("#userMenu").click(function(){
+			$(".contents").load("login.jsp");
+		});
+	});
+	
+	// 관리자 계정으로 로그인 했을 경우 
+	// 일반 로그인에서 결과가 admin 인 경우 해당
+	$("#adminBtn").click(function(){
+		if($(this).text() == '관리자'){
+			$(".navigator").load("./admin/admin_navi.html");
+			$(this).text('일반');
+		}else{
+			$(".navigator").load("./navi.html", function() {
+				$("#userMenu").click(function(){
+					$(".contents").load("login.jsp");
+				});
+			});
+			$(this).text('관리자');
+		}
 		
-		$(".contents").load("login.jsp");
 	});
 }
 
@@ -24,7 +45,6 @@ function headerControll(){
 }
 
 function goToMain(){
-	// session 확인하여 로그인 했는지 검사
 	location.href = "./";
 }
 

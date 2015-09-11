@@ -24,6 +24,7 @@
             <input class="search-box" type="text"  />
 		</div>
 		<div class="right">
+			<button id="adminBtn" >관리자</button>
 			<span class="glyphicon glyphicon-search" ></span>
 			<span class="glyphicon glyphicon-menu-hamburger glyphicon-remove"></span>
 		</div>
@@ -33,17 +34,7 @@
 	<!-- contents container -->
 	<div id="contents-cont">
 		<div class="navigator" style="display:none;">
-			<ul>
-				<!-- 
-					- 로그인 후 
-						1. 로그아웃 표시
-						2. 마이페이지 추가  
-				-->
-				<li id="userMenu">로그인 / 회원가입</li>
-				<li>서비스 소개</li>
-				<li>토론방</li>
-				<li>고객지원</li>
-			</ul>
+			
 		</div>
 		<div class="contents">
 			

@@ -30,9 +30,11 @@
 		</table>
 	</form>
 	
-	<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+	<fb:login-button scope="public_profile,email,publish_actions" onlogin="checkLoginState();">
 	페이스북 연동하기
 	</fb:login-button>
+	<button id="logoutBtn" >로그아웃</button>
+	<button id="writeBtn" >글쓰기</button>
 
 <script type="text/javascript">
 
@@ -42,6 +44,15 @@
 		});
 		$("#find").click(function(){
 			window.open("http://www.naver.com");
+		});
+		
+		// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+		// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+		$("#writeBtn").click(function(){
+			// 참고 https://developers.facebook.com/docs/plugins/embedded-posts
+			// link 의 값이 틀린 정보이면 안올라 감, 주의 ! 
+			FB.api('/me/feed','post',{message:'test2 미안합니다...',link:'www.facebook.com'});
+    			alert('done');
 		});
 	});
 	

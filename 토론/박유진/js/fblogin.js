@@ -70,12 +70,28 @@
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
+    	$("#userMenu").text(response.name);
+    		
+//    	for(var k in response){
+//    		alert("k : "+k);
+//    	}
+    	
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
     });
   }
-
+ 
+  
+$(document).ready(function(){
+	$("#logoutBtn").click(function(){
+		FB.logout(function(response) {
+		    // 사용자 로그 아웃 이후 콜백처리
+		  goToMain();
+	  });
+	});
+}); 
+  
   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   
