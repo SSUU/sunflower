@@ -1,0 +1,31 @@
+.head{
+width: 99%;
+height: 80px;
+border:2px solid black;
+margin-bottom: 1px;
+line-height: 80px;
+font-size: x-large;
+}
+.shead1{
+width: 32.7%;
+height: 80px;
+float: left;
+border:2px solid black;
+line-height: 80px;
+font-size: large;
+}
+.center{
+width: 32.7%;
+height:500px;
+border:2px solid black;
+float: left;
+margin-top: 1px;
+text-align: center;
+}
+.center2{
+width: 66%;
+height:500px;
+border:2px solid black;
+float: left;
+margin-top: 1px;
+}
