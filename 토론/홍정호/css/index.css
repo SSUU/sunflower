@@ -1,0 +1,121 @@
+body {
+  margrin: 0px auto;
+  padding: 0px auto;
+  font-family: 'Proxima Nova',sans-serif;
+  box-sizing: border-box; }
+
+a {
+  text-decoration: none !important;
+  font-size: 17px; }
+
+.header-offset {
+  height: 50px; }
+
+#header-cont {
+  width: 100%;
+  height: 50px;
+  line-height: 35px;
+  z-index: 1;
+  position: fixed;
+  top: 0px;
+  background-color: white; }
+  #header-cont .symbol {
+    width: 70%;
+    height: inherit;
+    float: left;
+    background-color: yellow; }
+  #header-cont .right {
+    width: 100px;
+    height: inherit;
+    float: right;
+    background-color: green; }
+    #header-cont .right span {
+      line-height: 45px;
+      width: 45%;
+      font-size: 20px;
+      text-align: center;
+      cursor: pointer; }
+  #header-cont .search-box {
+    width: 50%;
+    margin-left: 8px;
+    max-width: 540px;
+    font-size: 15px;
+    margin-top: 5px; }
+  #header-cont a:hover {
+    color: #fff; }
+
+ul {
+  list-style: none;
+  font-size: 17px;
+  padding: 0px;
+  margin: 0px !important;
+  line-height: 45px;
+  cursor: pointer; }
+
+#footer-cont {
+  width: 100%;
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+  margin-right: 10px; }
+  #footer-cont h2 {
+    width: 70%;
+    font-size: 100%;
+    margin-bottom: 5x;
+    border-bottom: 1px solid #000; }
+  #footer-cont a {
+    width: inherit;
+    display: block; }
+    #footer-cont a:hover {
+      color: gray; }
+
+@media screen and (min-width: 600px) {
+  ul li {
+    padding-left: 25px;
+    border-bottom: 1px solid #000; }
+
+  #contents-cont {
+    width: 100%;
+    overflow: auto; }
+    #contents-cont .navigator {
+      transition: width 600ms ease-in-out;
+      width: 20%;
+      font-size: 15px;
+      float: left;
+      background-color: skyblue; }
+    #contents-cont .contents {
+      width: 80%;
+      height: 500px;
+      float: left;
+      background-color: #6799FF; }
+
+  #footer-cont .section {
+    width: 25%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    float: left; } }
+@media screen and (max-width: 600px) {
+  ul li {
+    padding-left: 25px;
+    border-bottom: 1px solid #000; }
+
+  #contents-cont {
+    width: 100%;
+    background: skyblue; }
+    #contents-cont .navigator {
+      transition: width 600ms ease-in-out;
+      width: 100%;
+      font-size: 15px; }
+    #contents-cont .contents {
+      width: 100%;
+      height: 500px;
+      background-color: #6799FF; }
+
+  #footer-cont .section {
+    width: 50%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    float: left; } }
+
+/*# sourceMappingURL=index.css.map */

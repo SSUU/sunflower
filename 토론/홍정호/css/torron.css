@@ -1,0 +1,75 @@
+.head{
+width: 99%;
+height: 80px;
+border:2px solid black;
+margin-bottom: 1px;
+line-height: 80px;
+font-size: x-large;
+}
+.shead1{
+width: 32.7%;
+height: 80px;
+float: left;
+border:2px solid black;
+line-height: 80px;
+font-size: large;
+}
+.center{
+width: 32.7%;
+height:500px;
+border:2px solid black;
+float: left;
+margin-top: 1px;
+text-align: center;
+}
+.center2{
+width: 66%;
+height:500px;
+border:2px solid black;
+float: left;
+margin-top: 1px;
+}
+.center3{
+width: 100%;
+height: 430px;
+border:2px solid black;
+overflow: auto;
+}
+.center4{
+width: 100%;
+height: 66px;
+border:2px solid black;
+}
+
+.ta{
+height: 60px;
+width: 88.7%;
+float: left;
+}
+.tbtn{
+width: 10%;
+height: 67px;
+}
+
+fieldset {
+	padding: .35em .625em .75em !IMPORTANT;
+    margin: 0 2px !IMPORTANT;
+    border: 1px solid silver !IMPORTANT;
+}
+
+.graph{
+width: 99%; 
+height: 420px;
+border: 2px solid black;
+
+}
+.cbtn{
+width: 99%; 
+height: 74px;
+border: 2px solid black;
+}
+.gbtn{
+width: 49.5%;
+height: 74px;
+font-size: x-large;
+}
