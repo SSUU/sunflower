@@ -5,9 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-	<script src="//code.jquery.com/jquery-1.11.3.min.js" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
-	<link rel="stylesheet" src="../css/newuser.css" />
+	<link rel="stylesheet" href="../css/person/person.css" />
 </head>
 <body>
 
@@ -23,7 +22,5 @@
 	<input type="button" value="완료" id="successBtn"/><input type="button" value="취소" id="cancelBtn"/>
 </div>
 
-<script src="../js/newuser.js" />
 </body>
-
 </html>

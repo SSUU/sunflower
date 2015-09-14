@@ -8,7 +8,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>별이 되어라</title>
 	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-	<script src="../js/torront.js" ></script>
+	<script src="../js/homepage.js" ></script>
+	<script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1.1','packages':['corechart']}]}"></script>
 	<link rel="stylesheet" type="text/css" href="../css/index.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
@@ -31,6 +32,7 @@
 	</div>
 
 	<div class="header-offset"></div>
+    
 	<!-- contents container -->
 	<div id="contents-cont">
 		<div class="navigator" style="display:none;">

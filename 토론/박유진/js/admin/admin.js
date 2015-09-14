@@ -5,8 +5,7 @@ $(document).ready(function(){
 function clickMenu(){
 	
 	$("li").click(function(){		
-		var path = "./admin/admin_";
-		path += $(this).attr("value")+".jsp";
-		$(".contents").load(path);
+		var loadFileName = $(this).attr("value");
+		$(".contents").load(tPath.getView(loadFileName));
 	});
 }

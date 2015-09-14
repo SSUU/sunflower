@@ -6,7 +6,8 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 	<title>Insert title here</title>
  	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
- 	<script src="../js/fblogin.js" ></script>
+ 	<script src="../js/util/fblogin.js" ></script>
+ 	<script src="../js/person/person.js" ></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
 
@@ -23,7 +24,7 @@
 			</tr>
 			<tr>
 				<td align="center">
-					<input type="button" value="회원가입" id="newuser"/>
+					<input type="button" value="회원가입" id="signup"/>
 					<input type="button" value="계정찾기" id="find"/>
 				</td>
 			</tr>
