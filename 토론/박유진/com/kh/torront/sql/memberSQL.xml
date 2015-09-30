@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 
+'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+<sqlMap namespace="member">
+	<typeAlias alias="member" type="com.kh.torront.vo.MemVO" />
+<!-- 	<insert id = "insert" parameterClass = "member"> -->
+<!-- 		insert into member2  -->
+<!-- 		(id,pw) -->
+<!-- 		values( -->
+<!-- 		#id# -->
+<!-- 		) -->
+<!-- 	</insert> -->
+	
+	<select id="idchk" parameterClass="member" resultClass="String">
+		select memail from member where memail = #memail#
+	</select>
+	<select id="nickchk" parameterClass="member" resultClass="String">
+		select mnic from member where mnic = #mnic#
+	</select>
+	<select id="namechk" parameterClass="member" resultClass="String">
+		select mpw from member where memail = #memail# and mname = #mname# 
+	</select>
+<!-- 	<select id="login" prameterClass="member"> -->
+<!-- 		select memail,mpw from member where memail= #memail# and mpw = #mpw# -->
+<!-- 	</select> -->
+<!-- 	<select id="select1" parameterClass="member" resultClass="String"> -->
+<!-- 		select name from member2 where id=#id#  -->
+<!-- 	</select> -->
+	<insert id = "signup" parameterClass="member">
+		insert into member
+		(memail,mpw,mname,mnic,mdate,mgender)
+		values(
+		#memail#,
+		#mpw#,
+		#mname#,
+		#mnic#,
+		sysdate,
+		#mgender#
+		)
+	</insert>
+		
+</sqlMap>
+

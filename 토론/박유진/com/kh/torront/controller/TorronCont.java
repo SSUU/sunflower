@@ -4,6 +4,7 @@ package com.kh.torront.controller;
 import java.text.DateFormat;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.ibatis.SqlMapClientTemplate;
@@ -37,7 +38,7 @@ public class TorronCont {
 	}//
 	
 	@RequestMapping("view/torron/tcreate.lip")
-	public void create(HttpServletRequest request,ListVO LVO ){
+	public void create(HttpServletRequest request, HttpServletResponse response, ListVO LVO ){
 	
 		System.out.println("제목: "+LVO.getTsub());
 		//����
@@ -97,9 +98,5 @@ public class TorronCont {
 		 System.out.println(t3 + "-" + t1 + "-" + t2);
 		 String s = "/";
 		 String tf = t3 +s+ t1 +s+ t2; 
-		
-		 
-		 
-		 
 	}
 }

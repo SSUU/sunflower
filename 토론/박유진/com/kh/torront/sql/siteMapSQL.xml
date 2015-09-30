@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+<sqlMap namespace="cp">
+		
+		<typeAlias alias="cpVO" type="com.kh.torront.vo.CategoryPathVO" />
+		<resultMap id="rescpVO" class="com.kh.torront.vo.CategoryPathVO">
+		  	<result property="cpno" column="cpno"/>
+		  	<result property="cpname" column="cpname"/>
+		  	<result property="cppath" column="cppath"/>
+		  	<result property="cpcnt" column="cpcnt"/>
+		</resultMap>
+		
+		<insert id="cinsert" parameterClass="cpVO">
+			INSERT INTO categorypath (cpno, cpname, cppath) 
+			VALUES(categorypath_no_seq.nextval,#cpname#,#cppath#)
+		</insert>
+		
+		<select id="cselect" resultMap="rescpVO">
+				SELECT * FROM categorypath WHERE cpno = 1
+		</select>
+		
+		<select id="cselect2" resultMap="rescpVO" parameterClass="cpVO">
+				SELECT * FROM categorypath WHERE cpno = #cpno#
+		</select>
+		
+		<delete id="cdelete">
+		</delete>
+		
+		<update id="cupdate">
+		</update>
+		
+		<!-- <typeAlias alias="sMap" type="com.kh.torront.vo.SiteMapVO" />
+		리절트 맵 정의
+	  	<resultMap id="sMapRes" class="com.kh.torront.vo.SiteMapVO">
+		  	<result property="no" column="no"/>
+		  	<result property="name" column="name"/>
+		  	<result property="domain" column="domain"/>
+		</resultMap>
+		
+		insert 쿼리문 정의
+		<insert id="insert" parameterClass="sMap">
+      		INSERT INTO sitemap (no, domain, name)
+      		VALUES(sitemap_no_seq.nextval,#domain#,#name#)
+		</insert>
+		
+		<select id="select" resultMap="sMapRes">
+			SELECT * FROM sitemap
+		</select>
+		 -->
+</sqlMap>
