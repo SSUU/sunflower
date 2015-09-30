@@ -51,7 +51,6 @@ function pathContainer() {
 	var basePath = "./";
 	var viewPath = 
 	[ 
-	 
 	  {
 		folder : "util/",
 		chat : "chat",
@@ -64,7 +63,8 @@ function pathContainer() {
 		folder : "person/",
 		login : "login",
 		signup : "signup",
-	
+		agree: "agree",
+		find: "find"
 	  },
 	  {
 		folder : "torron/",

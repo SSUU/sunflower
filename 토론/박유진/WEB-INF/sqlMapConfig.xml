@@ -2,11 +2,10 @@
 <!DOCTYPE sqlMapConfig PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"
 	"http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
 <sqlMapConfig>
-	<settings  useStatementNamespaces="true" />
 
-	
-	
-<!-- 	<sqlMap resource="/com/kh/torront/sql/listSQL.xml"/> -->
+	<settings useStatementNamespaces="true" />
+	<sqlMap resource="/com/kh/torront/sql/siteMapSQL.xml" />
+	<sqlMap resource="/com/kh/torront/sql/memberSQL.xml" />
 	
 </sqlMapConfig>
 

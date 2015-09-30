@@ -1,0 +1,21 @@
+@CHARSET "US-ASCII";
+
+#signup-cont {
+	width: 600px;
+	margin: 0px auto;
+}
+
+#signup-cont  input[type=text], input[type=password] {
+	width: 300px;
+}
+
+#signup-cont  input[type=button] {
+	width: 100%;
+}
+
+#signup-cont .tbBtn > input[type=button] {
+	width: 50%;
+	margin-top: 10px;
+	display: inline-block;
+	float: left;
+}

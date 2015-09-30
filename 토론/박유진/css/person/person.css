@@ -4,3 +4,44 @@
 	width: 940px;
 	margin: 0px auto;
 }
+
+#login-cont {
+	width: 360px;
+	margin: 0px auto;
+}
+
+.input-cont {
+	width: 100%;
+}
+
+.input-cont>span {
+	display: inline-block;
+	width: 50px;
+	margin-bottom: 5px;
+}
+
+.input-cont>input {
+	width: 100%;
+	margin-bottom: 5px;
+}
+
+.btn-cont {
+	margin-top: 5px;
+}
+
+.btn-cont>input[type=button] {
+	width: 100%;
+}
+
+.btn-cont>p>input[type=button] {
+	width: 50%;
+	box-sizing: border-box;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}

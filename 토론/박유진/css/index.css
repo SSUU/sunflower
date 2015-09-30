@@ -11,7 +11,7 @@ a {
 .header-offset {
   height: 50px; }
 
-#header-cont {
+#header-cont {she
   width: 100%;
   height: 50px;
   line-height: 35px;
@@ -85,8 +85,10 @@ ul {
     #contents-cont .contents {
       width: 80%;
       height: 500px;
+      padding-left: 20px;
+    	  padding-right: 20px;
       float: left;
-      background-color: red; }
+       }
 
   #footer-cont .section {
     width: 25%;
@@ -109,7 +111,7 @@ ul {
     #contents-cont .contents {
       width: 100%;
       height: 500px;
-      background-color: red; }
+       }
 
   #footer-cont .section {
     width: 50%;

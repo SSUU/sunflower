@@ -6,24 +6,28 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>게시판</title>
 	<script type="text/javascript" src="../js/torron/list.js"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/torron/list.css" />
 </head>
 
 <body>
 
-	<table border="1" id="t_listTable" class="111">
-		<h3>게시판 만들기</h3>
-		<tr>
-			<td align="center" ><font size="6">글번호</td>
-			<td align="center"><font size="6">제목</td>
-			<td align="center"><font size="6">작성자</td>
-			<td align="center"><font size="6">작성일</td>
-			<td align="center"><font size="6">진행상황</td>
-		</tr>
-		
-		
-	</table>
-	<button id="write">글작성하기</button>
-	
+	<!-- 게시물 container -->
+	<div id="list-cont">
+		<table id="t_listTable" class="table table-bordered">
+			<h3>게시판 만들기</h3>
+			<thead>
+				<tr>
+					<td align="center" >글번호</td>
+					<td align="center">제목</td>
+					<td align="center">작성자</td>
+					<td align="center">작성일</td>
+					<td align="center">진행상황</td>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+		<button id="write" class="btn btn-default">글작성하기</button>
+	</div>
 </body>
 </html>

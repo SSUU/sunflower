@@ -1,0 +1,48 @@
+@CHARSET "US-ASCII";
+
+body {
+	margin: 0px;
+}
+
+#create-cont {
+	width: 100%;
+	min-width: 500px;
+	max-width: 500px;
+}
+
+#create-cont table {
+	width: inherit;
+}
+
+#create-cont table tr {
+	width: inherit;
+}
+
+#scrap {
+	width: 100%;
+	height: auto;
+	min-height: 30px;
+}
+
+#create-cont #subject {
+	width: 100%;
+}
+
+#url {
+	width: 80%;
+	height: 32px;
+	margin-top: 1px;
+}
+
+#add {
+	width: 18%;
+	margin-bottom: 2px;
+}
+
+#contents {
+	width: 98%;
+}
+
+#create-cont createBtn {
+	margin: 0px auto;
+}

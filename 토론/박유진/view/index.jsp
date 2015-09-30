@@ -15,7 +15,6 @@
 </head>
 <body>
 
-.
 	<!-- header container -->
 	<div id="header-cont">
 		<div class="symbol">
@@ -33,10 +32,7 @@
 	</div>
 
 	<div class="header-offset"></div>
-    <form action="../aa.lip">
-	<input type="text" name="subject"/>
-	<input type="submit"/>
-	</form>
+    
 	<!-- contents container -->
 	<div id="contents-cont">
 		<div class="navigator" style="display:none;">
@@ -83,5 +79,6 @@
             <a href="">Our Supporters</a>
         </div>	
 	</div>
+
 </body>
 </html>

@@ -1,6 +1,6 @@
  function statusChangeCallback(response) {
     console.log('statusChangeCallback');
-    console.log(response);
+    //console.log(response);
     // The response object is returned with a status field that lets the
     // app know the current login status of the person.
     // Full docs on the response object can be found in the documentation
@@ -70,16 +70,18 @@
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
-    	$("#userMenu").text(response.name);
-    		
-//    	for(var k in response){
-//    		alert("k : "+k);
-//    	}
     	
+    	console.log(JSON.stringify(response));
+    	$("#userMenu").text(response.name);
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
     });
+    
+    FB.api('/me', {fields:'email, last_name'},function(response) {
+    		console.log(response);
+    		console.log("test");
+	});
   }
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

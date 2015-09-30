@@ -1,0 +1,36 @@
+@CHARSET "US-ASCII";
+
+#list-cont {
+	width: 100%;
+	min-width: 810px;
+	padding: 10px;
+}
+
+#list-cont #write {
+	margin-top: 10px;
+	float: right;
+}
+
+#list-cont table {
+	width: 100%;
+}
+
+#list-cont td:nth-child(1) {
+	width: 8%;
+}
+
+#list-cont td:nth-child(2) {
+	width: 54%;
+}
+
+#list-cont td:nth-child(3) {
+	width: 13%;
+}
+
+#list-cont td:nth-child(4) {
+	width: 13%;
+}
+
+#list-cont td:nth-child(5) {
+	width: 10%;
+}

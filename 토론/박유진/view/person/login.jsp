@@ -5,15 +5,33 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 	<title>Insert title here</title>
- 	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
- 	<script src="../js/util/fblogin.js" ></script>
  	<script src="../js/person/person.js" ></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+ 	<script src="../js/util/fblogin.js" ></script>
+	<link rel="stylesheet" href="../css/person/person.css">
 </head>
 
 <body>
-
-	<form action="loginPro.lip" method="post">
+	
+	<div id="login-cont">
+	<h3>로그인</h3>
+		<!-- 입력창 container -->
+		<div class="input-cont">
+			<span>아이디</span>
+			<input type="text" class="form-control" id="id" name="id" placeholder="Email" />
+			<span>비밀번호</span>
+			<input type="password" class="form-control" id="pw" size="20" placeholder="Password"/>
+		</div>
+		<!-- 버튼 container -->
+		<div class="btn-cont">
+			<input type="button" value="로그인" id="loginBtn" class="btn btn-default" />
+			<p>
+				<input type="button" value="회원가입" id="signupBtn" name="signup" class="btn btn-default left" />
+				<input type="button" value="계정찾기" id="findBtn" name="find" class="btn btn-default right" />
+			</p>
+		</div>
+	</div>
+	
+	<!-- <form action="login.lip" method="post">
 		<table border="2">
 			<tr>
 				<td align="center">아이디 : <input type="text" id="id"  /></td>
@@ -29,34 +47,14 @@
 				</td>
 			</tr>
 		</table>
+
+		<img src="C:/Users/user2/Desktop/페북.jpg" width="25" href="http://www.facebook.com"/>
+		<a href="http://www.facebook.com" ><font color="blue" size="3">페이스북으로 로그인</font></a>
 	</form>
 	
-	<fb:login-button scope="public_profile,email,publish_actions" onlogin="checkLoginState();">
+	<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 	페이스북 연동하기
-	</fb:login-button>
-	<button id="logoutBtn" >로그아웃</button>
-	<button id="writeBtn" >글쓰기</button>
+	</fb:login-button> -->
 
-<script type="text/javascript">
-
-	$(document).ready(function(){
-		$("#newuser").click(function(){
-			$(".contents").load("newuser.jsp");
-		});
-		$("#find").click(function(){
-			window.open("http://www.naver.com");
-		});
-		
-		// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-		// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-		$("#writeBtn").click(function(){
-			// 참고 https://developers.facebook.com/docs/plugins/embedded-posts
-			// link 의 값이 틀린 정보이면 안올라 감, 주의 ! 
-			FB.api('/me/feed','post',{message:'test2 미안합니다...',link:'www.facebook.com'});
-    			alert('done');
-		});
-	});
-	
-</script>	
 </body>
 </html>

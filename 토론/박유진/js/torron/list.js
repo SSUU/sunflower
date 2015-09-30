@@ -34,7 +34,7 @@ function addRoom(data){
 	
 	for(var i=0; i<5; i++){
 		var addData = addTableData(i, data);
-		newTd += "<td align='center' id="+addData.id+"><font size='6'>"+addData.value+"</td>";
+		newTd += "<td align='center' id="+addData.id+">"+addData.value+"</td>";
 	}
 	
 	newTr += newTd+"</tr>";

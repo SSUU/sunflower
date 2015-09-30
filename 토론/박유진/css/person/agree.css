@@ -1,0 +1,15 @@
+@CHARSET "US-ASCII";
+
+.btn1 {
+	background-color: green;
+	border-radius: 25px;
+	color: white;
+	font-style: oblique;
+}
+
+.btn2 {
+	background-color: green;
+	border-radius: 25px;
+	color: white;
+	font-style: oblique;
+}
