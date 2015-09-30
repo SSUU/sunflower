@@ -8,9 +8,10 @@
 	<script type="text/javascript" src="../js/torron/list.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
+
 <body>
 
-	<table border="1" id="t_listTable">
+	<table border="1" id="t_listTable" class="111">
 		<h3>게시판 만들기</h3>
 		<tr>
 			<td align="center" ><font size="6">글번호</td>

@@ -1,11 +1,17 @@
 $(document).ready(function() {
+	// dao list 정보들을 받아와서 
 	listEvent();
+	
 });
+
+
+
 
 function listEvent(){
 	
 	$("#write").click(function(){
-		var myWindow = window.open("./torron/create.jsp","create","width=500, height=500");
+		var myWindow = window.open(tPath.getView("create"),
+				"create","width=500, height=700","scrollbar=no","toolbar=no");
 	});
 	
 }
@@ -17,8 +23,10 @@ function listEvent(){
 //<td align="center"><font size="6">작성일</td>
 //<td align="center"><font size="6">진행상황</td>
 //</tr>
+
 // 방 개설시 추가	
 // data 에서 추가 정보 받아와 추가하기
+
 function addRoom(data){
 	
 	var newTr = "<tr>";
@@ -70,3 +78,4 @@ function addTableData(idx, data){
 	
 	return addData;
 }
+
