@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+<sqlMap namespace="torron">
+	<typeAlias alias="listVO" type="com.kh.torront.vo.ListVO" />
+	<resultMap class="com.kh.torront.vo.ListVO" id="relistVO">
+		<result property="memail" column="memail"/>
+	</resultMap>
+	<select id="select" resultMap="relistVO">
+		SELECT memail FROM member
+	</select>
+</sqlMap>

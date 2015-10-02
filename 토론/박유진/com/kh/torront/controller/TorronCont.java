@@ -1,7 +1,7 @@
 package com.kh.torront.controller;
 
 
-import java.text.DateFormat;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,17 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.kh.torront.vo.ListVO;
 import com.kh.torront.vo.Naljja;
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
-
-import sun.org.mozilla.javascript.internal.regexp.SubString;
 
 
 
 @Controller
 public class TorronCont {
 	
-//	@Autowired
-//	SqlMapClientTemplate sqlMapClientTemplate;
+	@Autowired
+	SqlMapClientTemplate sqlMapClientTemplate;
 	
 	@RequestMapping("view/nalja.lip")
 	public void nalja(Naljja nal,HttpServletRequest request){
@@ -98,5 +95,12 @@ public class TorronCont {
 		 System.out.println(t3 + "-" + t1 + "-" + t2);
 		 String s = "/";
 		 String tf = t3 +s+ t1 +s+ t2; 
+		 
+		 List<ListVO> list = sqlMapClientTemplate.queryForList("torron.select");
+		 for(int i=0; i<list.size(); i++){
+			 ListVO vo = list.get(i);
+			 System.out.println("1...."+vo.getMemail());
+			 
+		 }
 	}
 }

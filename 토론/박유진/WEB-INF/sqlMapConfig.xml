@@ -6,6 +6,7 @@
 	<settings useStatementNamespaces="true" />
 	<sqlMap resource="/com/kh/torront/sql/siteMapSQL.xml" />
 	<sqlMap resource="/com/kh/torront/sql/memberSQL.xml" />
+	<sqlMap resource="/com/kh/torront/sql/torron.xml" />
 	
 </sqlMapConfig>
 
